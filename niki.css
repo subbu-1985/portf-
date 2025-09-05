@@ -1,0 +1,156 @@
+/* ----- RESET & THEME ----- */
+:root{
+  --bg:#000;
+  --fg:#ededed;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
+/* subtle radial gradient backdrop */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at center,rgba(50,180,255,.1) 0%,transparent 70%),
+    radial-gradient(circle at 20% 30%,rgba(255,50,200,.1) 0%,transparent 70%),
+    radial-gradient(circle at 80% 70%,rgba(255,220,50,.1) 0%,transparent 70%);
+  z-index:0;
+}
+
+/* ----- HEADER NAV ----- */
+header{
+  transition:background .3s;
+}
+.nav-link{
+  color:#d1d5db;
+  font-weight:500;
+  transition:color .3s;
+}
+.nav-link:hover{
+  color:#fff;
+}
+
+/* ----- HERO ----- */
+#about{
+  background:linear-gradient(270deg,rgba(123,44,191,.65) 20%,rgba(44,62,80,.65) 100%);
+}
+#typed{
+  display:inline-block;
+  min-height:28px;
+}
+.typed-cursor{
+  opacity:1;
+  animation:blink .7s infinite;
+}
+@keyframes blink{
+  50%{opacity:0;}
+}
+
+/* ----- GENERAL SECTIONS ----- */
+section{
+  position:relative;
+  z-index:10;
+}
+.card{
+  background:rgba(17,24,39,.9);
+  backdrop-filter:blur(8px);
+  padding:2rem;
+  border-radius:1rem;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+/* ----- GRID CARDS ----- */
+#skillsGrid>div,
+#projectsGrid>div{
+  background:rgba(17,24,39,.8);
+  backdrop-filter:blur(8px);
+  border-radius:1rem;
+  padding:1.5rem;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  transition:transform .3s,box-shadow .3s;
+}
+#skillsGrid>div:hover,
+#projectsGrid>div:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+/* ----- BUTTONS ----- */
+.social-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:#1f2937;
+  color:#fff;
+  padding:.5rem 1rem;
+  border-radius:.5rem;
+  transition:background .3s;
+}
+.social-btn:hover{
+  background:#374151;
+}
+.contact-btn{
+  position:relative;
+  background:linear-gradient(to right,var(--tw-gradient-stops));
+  color:#fff;
+  font-weight:bold;
+  padding:1rem 2rem;
+  border-radius:.75rem;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  transition:transform .3s,box-shadow .3s;
+  cursor:pointer;
+  border:none;
+}
+.contact-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 25px rgba(0,0,0,.4);
+}
+.footer-link{
+  margin:0 .75rem;
+  color:#9ca3af;
+  transition:color .3s;
+}
+.footer-link:hover{
+  color:#fff;
+}
+
+/* ----- UTILS ----- */
+.gradient-text{
+  background-size:100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ----- ANIMATE ON SCROLL ----- */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .7s ease-out,transform .7s ease-out;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ----- NEURAL NETWORK CANVAS ----- */
+#neural-canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  z-index:1;
+  pointer-events:none;
+}
